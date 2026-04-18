@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\backend\CMS\HomePage\HomePageController;
 use App\Http\Controllers\Web\backend\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,5 +14,25 @@ Route::get('/', fn() => view('welcome'));
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->name('dashboard');
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    /**
+     *
+     * CMS Pages
+     */
+    Route::prefix('cms')->name('cms.')->group(function () {
+        // Home Page
+        Route::controller(HomePageController::class)->prefix('home-page')->name('home_page.')->group(function () {
+            Route::get('/top-section', 'topSection')->name('top_section');
+            Route::patch('/top-section/update', 'topSectionUpdate')->name('top_section.update');
+        });
+        // Home Page Category Section
+        Route::controller(HomePageController::class)->prefix('home-page')->name('home_page.')->group(function () {
+            Route::get('/category-section', 'categorySection')->name('category_section');
+            Route::patch('/category-section/update', 'categorySectionUpdate')->name('category_section.update');
+        });
+    });
+});
 
 require __DIR__ . '/auth.php';

@@ -108,10 +108,10 @@ Route::middleware(['auth', 'verified', 'role_or_permission:admin|superadmin'])->
     /**
      * Products
      */
-    Route::resource('products', ProductController::class);
-
     Route::get('products/sub-categories', [ProductController::class, 'getSubCategories'])
         ->name('products.sub-categories');
+
+    Route::resource('products', ProductController::class);
 
     Route::post('products/{id}/change-status', [ProductController::class, 'changeStatus'])
         ->name('products.change-status');

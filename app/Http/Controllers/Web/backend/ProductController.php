@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\SubCategory;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
@@ -49,7 +50,12 @@ class ProductController extends Controller
         $data = $this->productService->getDataForCreate();
         return view('backend.layout.products.create', $data);
     }
+    public function show($id)
+    {
+        $product = Product::findOrFail($id);
 
+        return view('backend.product.show', compact('product'));
+    }
     public function store(ProductRequest $request)
     {
         try {
@@ -101,13 +107,32 @@ class ProductController extends Controller
         ]);
     }
 
+    // public function getSubCategories(Request $request)
+    // {
+    //     try {
+    //         $data = SubCategory::where('category_id', $request->category_id)
+    //             ->get(['id', 'name']);
+
+    //         return response()->json($data);
+    //     } catch (\Exception $e) {
+    //         return response()->json([
+    //             'error' => $e->getMessage()
+    //         ], 500);
+    //     }
+    // }
+
     public function getSubCategories(Request $request)
     {
-        $subCategories = SubCategory::where('category_id', $request->category_id)
-            ->where('status', true)
-            ->get(['id', 'name']);
+        try {
+            $subCategories = SubCategory::where('category_id', $request->category_id)->get();
+            // ->where('status', 1)
+            // ->get(['id', 'name']);
 
-        return response()->json($subCategories);
+            return response()->json($subCategories);
+        } catch (\Throwable $e) {
+            Log::error('SubCategory fetch error: ' . $e->getMessage());
+            return response()->json(['error' => 'Server error'], 500);
+        }
     }
     public function bulkDelete(Request $request)
     {

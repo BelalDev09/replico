@@ -46,7 +46,9 @@
     @push('scripts')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+        {{-- responsive --}}
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+        <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
         <script>
             $(document).ready(function() {
 
@@ -63,6 +65,7 @@
                         processing: true,
                         serverSide: true,
                         responsive: true,
+                        autoWidth: false,
                         order: [],
 
                         lengthMenu: [

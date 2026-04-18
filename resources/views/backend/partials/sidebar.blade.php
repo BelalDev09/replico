@@ -189,9 +189,10 @@
                         <i class="ri-book-3-line"></i>
                         <span>Products</span>
                     </a>
-                    @can('manage.products')
-                        {{-- Activity Logs --}}
-                        {{-- <li class="nav-item">
+                </li>
+                @can('manage.products')
+                    {{-- Activity Logs --}}
+                    {{-- <li class="nav-item">
                         <a class="nav-link menu-link {{ request()->routeIs('admin.activity.history') ? 'active' : '' }}"
                             href="#">
                             <i class="ri-chat-check-line me-1"></i>
@@ -199,109 +200,63 @@
                         </a>
                     </li> --}}
 
-                        {{-- Order History --}}
-                        {{-- <li class="nav-item">
+                    {{-- Order History --}}
+                    {{-- <li class="nav-item">
                         <a class="nav-link menu-link {{ request()->routeIs('admin.order.status.history') ? 'active' : '' }}"
                             href="#">
                             <i class="ri-file-warning-line me-1"></i>
                             <span>Order History</span>
                         </a>
                     </li> --}}
-                    @endcan
+                @endcan
 
-                    {{-- Menu Page --}}
-                    {{-- @can('manage.manu')
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="#sideMenu" data-bs-toggle="collapse" data-parent="#navbar-nav">
-                            <i class="ri-file-list-3-line"></i>
-                            <span>Menu Page</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="sideMenu">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.menu_items.index') }}"
-                                        class="nav-link {{ request()->routeIs('menu_items.*') ? 'active' : '' }}">
-                                        Menu Items
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.menu_item_ingredients.index') }}"
-                                        class="nav-link {{ request()->routeIs('menu_item_ingredients.*') ? 'active' : '' }}">
-                                        Menu Item Ingredients
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                @endcan --}}
-
-
-                    {{-- Order Page --}}
-                    {{-- @can('support.manage')
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="#sideOrder" data-bs-toggle="collapse"
-                            data-parent="#navbar-nav">
-                            <i class="ri-file-list-3-line"></i>
-                            <span>Order Page</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="sideOrder">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="{{ route('order.index') }}"
-                                        class="nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}">
-                                        Order
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('customer.index') }}"
-                                        class="nav-link {{ request()->routeIs('customer.*') ? 'active' : '' }}">
-                                        Customer
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                @endcan --}}
-
-                    {{-- Pages --}}
-                    {{-- @can('manage.page')
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="#sidePages" data-bs-toggle="collapse"
-                            data-parent="#navbar-nav">
-                            <i class="ri-file-list-3-line"></i>
-                            <span>Pages</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="sidePages">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.restaurants.index') }}"
-                                        class="nav-link {{ request()->routeIs('admin.restaurants.*') ? 'active' : '' }}">
-                                        Restaurant
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('restaurant_tables.index') }}"
-                                        class="nav-link {{ request()->routeIs('restaurant_tables.*') ? 'active' : '' }}">
-                                        Restaurant Tables
-                                    </a>
-                                </li> --}}
-                    {{-- <li class="nav-item">
-                                <a href="{{ route('staff.index') }}"
-                                    class="nav-link {{ request()->routeIs('staff.*') ? 'active' : '' }}">
-                                    Staff
+                {{-- CMS Routes --}}
+                <li class="menu-title"><span>CMS Section</span></li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#cmsHomepage" data-bs-toggle="collapse"
+                        data-parent="#navbar-nav">
+                        <i class="ri-settings-3-line"></i>
+                        <span>Home Page</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="cmsHomepage">
+                        <ul class="nav nav-sm flex-column">
+                            {{-- top section --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.cms.home_page.top_section') }}"
+                                    class="nav-link {{ request()->routeIs('admin.cms.home_page.top_section') ? 'active' : '' }}">
+                                    Top Section
+                                </a>
+                            </li>
+                            {{-- category section --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.cms.home_page.category_section') }}"
+                                    class="nav-link {{ request()->routeIs('admin.cms.home_page.category_section') ? 'active' : '' }}">
+                                    Category Section
+                                </a>
+                            </li>
+                            {{-- men collection section --}}
+                            {{-- <li class="nav-item">
+                                <a href="{{ route('admin.cms.home_page.men_collection_section') }}"
+                                    class="nav-link {{ request()->routeIs('admin.cms.home_page.men_collection_section') ? 'active' : '' }}">
+                                    Men Collection Section
                                 </a>
                             </li> --}}
-                    {{-- </ul>
-                        </div>
-                    </li>
-                @endcan --}}
+
+                            {{-- <li class="nav-item">
+                                <a href="{{ route('admin.setting.mail') }}"
+                                    class="nav-link {{ request()->routeIs('admin.setting.mail.*') ? 'active' : '' }}">
+                                    Mail Setting
+                                </a>
+                            </li> --}}
+
+                        </ul>
+                    </div>
+                </li>
 
 
-                    {{-- SETTINGS --}}
-                    @can('manage.setting')
+                {{-- SETTINGS --}}
+                @can('manage.setting')
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarSettings" data-bs-toggle="collapse"
                             data-parent="#navbar-nav">

@@ -128,7 +128,7 @@ class ProductService
             'sub_category_id'   => $request->sub_category_id,
             'brand_id'          => $request->brand_id,
             'name'              => $request->name,
-            'slug'              => $this->generateUniqueSlug($request->name, $isUpdate ? $request->route('product') : null),
+            'slug'              => $this->generateUniqueSlug($request->name, $isUpdate ? $request->product->id : null),
             'sku'               => $request->sku ?? ($isUpdate ? null : $this->generateSku()),
             'short_description' => $request->short_description,
             'description'       => $request->description,

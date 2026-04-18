@@ -159,7 +159,7 @@
                                     Product Variants
                                     <span class="badge bg-warning text-dark ms-2 fs-xs" id="variantCount">0</span>
                                 </h6>
-                                <small class="text-muted">Optional — Add size/color combinations with individual
+                                <small class="text-muted"> — Add size/color combinations with individual
                                     stock</small>
                             </div>
                             <button type="button" class="btn btn-primary btn-sm" id="addVariantBtn">
@@ -529,15 +529,29 @@
                 return;
             }
 
-            fetch(`{{ route('admin.products.sub-categories') }}?category_id=${categoryId}`)
-                .then(res => res.json())
+            fetch(`{{ url('admin/products/sub-categories') }}?category_id=${categoryId}`)
+                .then(async (response) => {
+                    if (!response.ok) {
+                        const text = await response.text();
+                        console.error('Server Error:', text);
+                        throw new Error('HTTP Error ' + response.status);
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     subSelect.innerHTML = '<option value="">-- Select Sub Category --</option>';
-                    data.forEach(function(sub) {
+
+                    if (!data.length) {
+                        subSelect.innerHTML = '<option value="">No Sub Categories Found</option>';
+                        return;
+                    }
+
+                    data.forEach(sub => {
                         subSelect.innerHTML += `<option value="${sub.id}">${sub.name}</option>`;
                     });
                 })
-                .catch(function() {
+                .catch(error => {
+                    console.error('Error:', error);
                     subSelect.innerHTML = '<option value="">Error loading sub-categories</option>';
                 });
         });
