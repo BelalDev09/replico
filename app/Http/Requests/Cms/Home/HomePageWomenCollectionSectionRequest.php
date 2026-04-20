@@ -25,22 +25,10 @@ class HomePageWomenCollectionSectionRequest extends FormRequest
     {
 
         return [
-            'main_text' => 'nullable|string',
-            'sub_text' => 'nullable|string',
+            'title' => 'nullable|string',
+            'sub_title' => 'nullable|string',
             'button_text' => 'nullable|string',
             'button_link' => 'nullable|url',
-
-            'brand_name' => 'nullable|array',
-            'brand_name.*' => 'nullable|string|max:255',
-
-            'title' => 'nullable|array',
-            'title.*' => 'nullable|string|max:255',
-
-            'price' => 'nullable|array',
-            'price.*' => 'nullable|string|max:255',
-
-            'image' => 'nullable|array',
-            'image.*' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ];
     }
 }

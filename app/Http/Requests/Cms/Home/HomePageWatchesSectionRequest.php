@@ -4,7 +4,7 @@ namespace App\Http\Requests\Cms\Home;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class HomePageMenCollectionSectionRequest extends FormRequest
+class HomePageWatchesSectionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class HomePageMenCollectionSectionRequest extends FormRequest
             'title' => 'nullable|string',
             'sub_title' => 'nullable|string',
             'button_text' => 'nullable|string',
-            'button_link' => 'nullable|url',
+            'link_url' => 'nullable|url',
         ];
     }
 }

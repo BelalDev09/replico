@@ -48,4 +48,8 @@ class CMS extends Model
         'v2' => 'array',
         'v3' => 'array',
     ];
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 }

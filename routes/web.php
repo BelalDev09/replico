@@ -22,6 +22,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
      * CMS Pages
      */
     Route::prefix('cms')->name('cms.')->group(function () {
+        // category by product
+
+        Route::get('/products-by-category', [HomePageController::class, 'getProductsByCategory'])
+            ->name('products_by_category');
         // Home Page
         Route::controller(HomePageController::class)->prefix('home-page')->name('home_page.')->group(function () {
             Route::get('/top-section', 'topSection')->name('top_section');
@@ -38,9 +42,19 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::patch('/men-collection-section/update', 'menCollectionSectionUpdate')->name('men_collection.update');
         });
         // home page women collection section
-          Route::controller(HomePageController::class)->prefix('home-page')->name('home_page.')->group(function () {
+        Route::controller(HomePageController::class)->prefix('home-page')->name('home_page.')->group(function () {
             Route::get('/women-collection-section', 'WomenCollectionSection')->name('women_collection_section');
             Route::patch('/women-collection-section/update', 'WomenCollectionSectionUpdate')->name('women_collection.update');
+        });
+        //watches section
+        Route::controller(HomePageController::class)->prefix('home-page')->name('home_page.')->group(function () {
+            Route::get('/watches-section', 'watchesSection')->name('watches_section');
+            Route::patch('/watches-section/update', 'watchesSectionUpdate')->name('watches.update');
+        });
+        //high tech section
+        Route::controller(HomePageController::class)->prefix('home-page')->name('home_page.')->group(function () {
+            Route::get('/high-tech-section', 'HighTechSection')->name('high_tech_section');
+            Route::patch('/high-tech-section/update', 'HighTechSectionUpdate')->name('high_tech.update');
         });
     });
 });

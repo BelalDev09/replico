@@ -243,14 +243,27 @@
                                     Men Collection Section
                                 </a>
                             </li>
+                            {{-- Women Collection Section --}}
                             <li class="nav-item">
                                 <a href="{{ route('admin.cms.home_page.women_collection_section') }}"
                                     class="nav-link {{ request()->routeIs('admin.cms.home_page.women_collection_section') ? 'active' : '' }}">
                                     Women Collection Section
                                 </a>
                             </li>
-
-                            {{-- <li class="nav-item">
+                            {{-- Watches Section --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.cms.home_page.watches_section') }}"
+                                    class="nav-link {{ request()->routeIs('admin.cms.home_page.watches_section') ? 'active' : '' }}">
+                                    Watches Section
+                                </a>
+                            </li>
+                            {{-- High Tech Section  --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.cms.home_page.high_tech_section') }}"
+                                    class="nav-link {{ request()->routeIs('admin.cms.home_page.high_tech_section') ? 'active' : '' }}">
+                                    High Tech Section
+                                </a>
+                                {{-- <li class="nav-item">
                                 <a href="{{ route('admin.setting.mail') }}"
                                     class="nav-link {{ request()->routeIs('admin.setting.mail.*') ? 'active' : '' }}">
                                     Mail Setting

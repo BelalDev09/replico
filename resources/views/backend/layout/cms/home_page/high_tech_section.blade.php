@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" />
 @endpush
 
-@section('title', 'Home Page - Women Collection Section')
+@section('title', 'Home Page - High Tech Section')
 
 @section('content')
 
@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h4 class="card-title mb-4">Women Collection Section</h4>
+                        <h4 class="card-title mb-4"> High Tech Section</h4>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul class="mb-0">
@@ -24,7 +24,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{ route('admin.cms.home_page.women_collection.update') }}" method="POST"
+                        <form action="{{ route('admin.cms.home_page.high_tech.update') }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
@@ -64,8 +64,7 @@
                             Save Changes
                         </button>
 
-                        <a href="{{ route('admin.cms.home_page.women_collection_section') }}"
-                            class="btn btn-outline-secondary">
+                        <a href="{{ route('admin.cms.home_page.high_tech_section') }}" class="btn btn-outline-secondary">
                             Cancel
                         </a>
                     </div>
