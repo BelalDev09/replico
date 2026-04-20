@@ -34,12 +34,18 @@ class CMS extends Model
         'meta',
         'extra',
         'settings',
-        'status'
+        'status',
+        'v1',
+        'v2',
+        'v3',
     ];
 
     protected $casts = [
         'meta' => 'array',
         'extra' => 'array',
         'settings' => 'array',
+        'v1' => 'array',
+        'v2' => 'array',
+        'v3' => 'array',
     ];
 }

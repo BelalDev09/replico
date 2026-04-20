@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Http\Requests\Cms\Home;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class HomePageMenCollectionSectionRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+
+        return [
+            'main_text' => 'nullable|string',
+            'sub_text' => 'nullable|string',
+            'button_text' => 'nullable|string',
+            'button_link' => 'nullable|url',
+
+            'brand_name' => 'nullable|array',
+            'brand_name.*' => 'nullable|string|max:255',
+
+            'title' => 'nullable|array',
+            'title.*' => 'nullable|string|max:255',
+
+            'price' => 'nullable|array',
+            'price.*' => 'nullable|string|max:255',
+
+            'image' => 'nullable|array',
+            'image.*' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ];
+    }
+}

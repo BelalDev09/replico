@@ -235,13 +235,20 @@
                                     Category Section
                                 </a>
                             </li>
+
                             {{-- men collection section --}}
-                            {{-- <li class="nav-item">
+                            <li class="nav-item">
                                 <a href="{{ route('admin.cms.home_page.men_collection_section') }}"
                                     class="nav-link {{ request()->routeIs('admin.cms.home_page.men_collection_section') ? 'active' : '' }}">
                                     Men Collection Section
                                 </a>
-                            </li> --}}
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.cms.home_page.women_collection_section') }}"
+                                    class="nav-link {{ request()->routeIs('admin.cms.home_page.women_collection_section') ? 'active' : '' }}">
+                                    Women Collection Section
+                                </a>
+                            </li>
 
                             {{-- <li class="nav-item">
                                 <a href="{{ route('admin.setting.mail') }}"

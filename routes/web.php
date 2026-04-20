@@ -32,6 +32,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/category-section', 'categorySection')->name('category_section');
             Route::patch('/category-section/update', 'categorySectionUpdate')->name('category_section.update');
         });
+        // home page men collection section
+        Route::controller(HomePageController::class)->prefix('home-page')->name('home_page.')->group(function () {
+            Route::get('/men-collection-section', 'menCollectionSection')->name('men_collection_section');
+            Route::patch('/men-collection-section/update', 'menCollectionSectionUpdate')->name('men_collection.update');
+        });
+        // home page women collection section
+          Route::controller(HomePageController::class)->prefix('home-page')->name('home_page.')->group(function () {
+            Route::get('/women-collection-section', 'WomenCollectionSection')->name('women_collection_section');
+            Route::patch('/women-collection-section/update', 'WomenCollectionSectionUpdate')->name('women_collection.update');
+        });
     });
 });
 
